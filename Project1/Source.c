@@ -100,7 +100,7 @@ void main()
 	printf("3) Display patient details\n");
 	printf("4) Update a patients details\n");
 	printf("5) Delete Patient\n");
-	printf("6) Generate statistics (A-D) based on the user selecting one of the criteria listed in I\n\t\tA. % of patients with a BMI of less than 18.5\n\t\tB. %of patients with a BMI of less than 25\n\t\tC. % of patients with a BMI of less than 30\n\t\tD. $ of patients with a BMI of greater than 30\n\n\t\tI. How many cigarettes would you smoke per day.\n");
+	printf("6) Generate statistics (A-D) based on the user selecting one of the criteria listed in I\n\t\tA. Percentage of patients with a BMI of less than 18.5\n\t\tB. Percentage of patients with a BMI of less than 25\n\t\tC. Percentage of patients with a BMI of less than 30\n\t\tD. Percentage of patients with a BMI of greater than 30\n\n\t\tI. How many cigarettes would you smoke per day.\n");
 	printf("7) Print all patient details into a report file.\n");
 	printf("8) List all the patient of the following countries in order of their last appointment.\n");
 
@@ -148,10 +148,12 @@ void main()
 
 			//printf("\n\nFINAL RESULT IS : %d\n\n", caolan);
 
-			//if (result == -1)
-			//	printf("The value %s does not exist in the list\n", searchID);
-			//else
-			//	printf("The vlaue %s exist at location %d\n", searchID, result);
+			if (result == -1) {
+				printf("The value %s does not exist in the list\n", searchVal);
+			}
+			else {
+				printf("The vlaue %s exist at location %d\n", searchVal, result);
+			}
 		}
 
 		else if (choice == 4)
@@ -166,6 +168,7 @@ void main()
 			printf("Please enter the location\n");
 			scanf_s("%d", &loc);
 
+			printf("%d", headPtr);
 			if (headPtr)
 			{
 				printf("The list is empty\n");
@@ -245,15 +248,17 @@ void displayList(nodeT* top)
 
 	temp = top;
 
-	printf("* * * * * * * * * * * * * * * * * * * * * * * * * \n");
+	printf(" | | |* * * * * * * * * * * * * * * * * * * * * * * * * \n");
 	while (temp != NULL)
 	{
-		printf("PPS Number : %d \nFirst Name : %s\nSecond Name : %s\nYear Born : %d\nGender : %d\nEmail Address : %s\nNext of Kin : %s\nLast appointment : %d\nWeight : %d\nHeight : %d\nDoes the patient have allergies : %d\nHow many cigarettes smoked per day : % d", temp->pps_number, temp->first_name, temp->last_name, temp->year_born, temp->gender, temp->email_address, temp->next_kin_name, temp->last_appointment, temp->weight, temp->height, temp->allergic_reactions, temp->cigarretes_count);
+		printf("\n* * * * * * * * * * * * * * * * * * * * * * * * * \n");
+		printf("PPS Number : %d \nFirst Name : %s\nSecond Name : %s\nYear Born : %d\nGender : %d\nEmail Address : %s\nNext of Kin : %s\nLast appointment : %d\nWeight : %d\nHeight : %d\nDoes the patient have allergies : %d\nHow many cigarettes smoked per day : % d\n\n", temp->pps_number, temp->first_name, temp->last_name, temp->year_born, temp->gender, temp->email_address, temp->next_kin_name, temp->last_appointment, temp->weight, temp->height, temp->allergic_reactions, temp->cigarretes_count);
 		//printf("Company Reg Num : %d \n Company Name %s \n Company Based in : %s \n Year company was founded : %d \n Contact Email Address : %s \n Company Contact Name : %s \n Last order made : %s \n Number of Employees in the Company : %d \n Average Annual Order : %d \n Is the client Vat registered : %d \n Average Client Turnover : %d \n How many staff does this company have : %d \n Which area of sales is this business in : %d \n", temp->CompanyRegNum, temp->CompanyName, temp->CompanyCountry, temp->YearCompanyFounded, temp->EmailAddress, temp->CompanyContactName, temp->LastOrder, temp->NumOfEmployees, temp->AvgAnnualOrder, temp->VatRegistered, temp->ClientAvgTurnover, temp->StaffCount, temp->SalesArea);
 		//printf("", temp->LastOrder, temp->NumOfEmployees, temp->AvgAnnualOrder);
 		temp = temp->NEXT;
+		printf("\n* * * * * * * * * * * * * * * * * * * * * * * * * \n");
 	}
-	printf("\n* * * * * * * * * * * * * * * * * * * * * * * * * \n");
+	printf("\n | | | * * * * * * * * * * * * * * * * * * * * * * * * * \n");
 }
 
 int listLength(nodeT* top)
