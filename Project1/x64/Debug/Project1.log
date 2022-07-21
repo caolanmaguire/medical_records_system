@@ -2,42 +2,40 @@
 C:\Users\pauli\source\repos\Project1\Project1\Source.c(1,32): warning C4081: expected 'newline'; found '.'
 C:\Users\pauli\source\repos\Project1\Project1\Source.c(114,25): warning C4047: 'function': 'node *' differs in levels of indirection from 'nodeT **'
 C:\Users\pauli\source\repos\Project1\Project1\Source.c(114,17): warning C4024: 'ReadDatabase': different types for formal and actual parameter 1
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(147,39): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(147,29): warning C4024: 'search': different types for formal and actual parameter 2
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(152,12): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'int'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(152,12): warning C4313: 'printf': '%s' in format string conflicts with argument 1 of type 'int'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(155,12): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'int'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(155,12): warning C4313: 'printf': '%s' in format string conflicts with argument 1 of type 'int'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(171,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'nodeT *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(171,11): warning C4313: 'printf': '%d' in format string conflicts with argument 1 of type 'nodeT *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(236,10): warning C4473: 'printf' : not enough arguments passed for format string
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(236,10): message : placeholders and their parameters expect 3 variadic arguments, but 0 were provided
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(236,10): message : the missing variadic argument 1 is required by format string '% o'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(148,39): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(148,29): warning C4024: 'search': different types for formal and actual parameter 2
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(172,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'nodeT *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(172,11): warning C4313: 'printf': '%d' in format string conflicts with argument 1 of type 'nodeT *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(237,10): warning C4473: 'printf' : not enough arguments passed for format string
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(237,10): message : placeholders and their parameters expect 3 variadic arguments, but 0 were provided
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(237,10): message : the missing variadic argument 1 is required by format string '% o'
 C:\Users\pauli\source\repos\Project1\Project1\Source.c(79,6): warning C4101: 'found': unreferenced local variable
 C:\Users\pauli\source\repos\Project1\Project1\Source.c(76,9): warning C4101: 'newNode': unreferenced local variable
 C:\Users\pauli\source\repos\Project1\Project1\Source.c(84,6): warning C4101: 'searchID': unreferenced local variable
 C:\Users\pauli\source\repos\Project1\Project1\Source.c(80,6): warning C4101: 'searchNum': unreferenced local variable
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(361,8): warning C4477: 'scanf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(448,15): warning C4047: 'function': 'const char *const ' differs in levels of indirection from 'int (__cdecl *)(FILE *)'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(448,11): warning C4024: 'printf': different types for formal and actual parameter 1
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(439,9): warning C4101: 'newPatientEntry': unreferenced local variable
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(497,33): warning C4028: formal parameter 1 different from declaration
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(523,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(523,11): warning C4313: 'printf': '%d' in format string conflicts with argument 1 of type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(523,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 4 has type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(523,11): warning C4313: 'printf': '%d' in format string conflicts with argument 4 of type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(523,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 5 has type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(523,11): warning C4313: 'printf': '%d' in format string conflicts with argument 5 of type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(523,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 8 has type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(523,11): warning C4313: 'printf': '%d' in format string conflicts with argument 8 of type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(523,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 9 has type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(523,11): warning C4313: 'printf': '%d' in format string conflicts with argument 9 of type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(523,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 10 has type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(523,11): warning C4313: 'printf': '%d' in format string conflicts with argument 10 of type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(523,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 11 has type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(523,11): warning C4313: 'printf': '%d' in format string conflicts with argument 11 of type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(523,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 12 has type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(523,11): warning C4313: 'printf': '%d' in format string conflicts with argument 12 of type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(541,13): warning C4098: 'ReadDatabase': 'void' function returning a value
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(569,3): warning C4550: expression evaluates to a function which is missing an argument list
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(293,10): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(293,10): warning C4313: 'printf': '%d' in format string conflicts with argument 2 of type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(363,8): warning C4477: 'scanf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(450,15): warning C4047: 'function': 'const char *const ' differs in levels of indirection from 'int (__cdecl *)(FILE *)'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(450,11): warning C4024: 'printf': different types for formal and actual parameter 1
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(441,9): warning C4101: 'newPatientEntry': unreferenced local variable
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(499,33): warning C4028: formal parameter 1 different from declaration
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(525,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(525,11): warning C4313: 'printf': '%d' in format string conflicts with argument 1 of type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(525,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 4 has type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(525,11): warning C4313: 'printf': '%d' in format string conflicts with argument 4 of type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(525,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 5 has type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(525,11): warning C4313: 'printf': '%d' in format string conflicts with argument 5 of type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(525,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 8 has type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(525,11): warning C4313: 'printf': '%d' in format string conflicts with argument 8 of type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(525,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 9 has type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(525,11): warning C4313: 'printf': '%d' in format string conflicts with argument 9 of type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(525,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 10 has type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(525,11): warning C4313: 'printf': '%d' in format string conflicts with argument 10 of type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(525,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 11 has type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(525,11): warning C4313: 'printf': '%d' in format string conflicts with argument 11 of type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(525,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 12 has type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(525,11): warning C4313: 'printf': '%d' in format string conflicts with argument 12 of type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(543,13): warning C4098: 'ReadDatabase': 'void' function returning a value
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(571,3): warning C4550: expression evaluates to a function which is missing an argument list
   Project1.vcxproj -> C:\Users\pauli\source\repos\Project1\x64\Debug\Project1.exe

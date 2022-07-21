@@ -132,8 +132,9 @@ void main()
 			//printf("%d\n\n", &searchID);
 			//printf("%i\n\n", &searchID);
 			//int newsearchID;
-			//printf("Please enter the ID you wish to search for\n");
-			//scanf_s("%i", &newsearchID);
+			/*printf("Please enter the ID you wish to search for\n");
+			scanf_s("%i", &searchVal);
+			printf("This is what I read %d\n", &searchVal);*/
 			
 			//printf("%i\n\n", &newsearchID);
 
@@ -148,12 +149,12 @@ void main()
 
 			//printf("\n\nFINAL RESULT IS : %d\n\n", caolan);
 
-			if (result == -1) {
+			/*if (result == -1) {
 				printf("The value %s does not exist in the list\n", searchVal);
 			}
 			else {
 				printf("The vlaue %s exist at location %d\n", searchVal, result);
-			}
+			}*/
 		}
 
 		else if (choice == 4)
@@ -277,6 +278,7 @@ int listLength(nodeT* top)
 
 int search(nodeT* top, int searchVal)
 {
+
 	printf("please input the pps number of the client you are searching for : \n");
 	scanf_s("%d", &searchVal);
 	printf("%d\n\n",searchVal);
@@ -288,7 +290,7 @@ int search(nodeT* top, int searchVal)
 
 	while (temp != NULL)
 	{
-		printf("%d / %d\n\n", temp->pps_number, searchVal);
+		printf("%d / %d\n\n", temp->pps_number, &searchVal);
 
 		if (temp->pps_number == searchVal)
 		{
