@@ -58,6 +58,7 @@ typedef struct node
 struct node* creatNode();
 
 void displayList(nodeT* top);
+void displayListNumbered(nodeT* top);
 int listLength(nodeT* top);
 int search(nodeT* top, int searchVal);
 //int search(nodeT* top);
@@ -166,15 +167,17 @@ void main()
 
 		else if (choice == 5)
 		{
+			displayListNumbered(headPtr);
 			printf("Please enter the location\n");
 			scanf_s("%d", &loc);
 
 			printf("%d", headPtr);
-			if (headPtr)
-			{
-				printf("The list is empty\n");
-			}
-			else if (loc<0 || loc>(listLength(headPtr) - 1))
+			//if (headPtr)
+			//{
+			//	printf("The list is empty\n");
+			//}
+			//else 
+			if (loc<0 || loc>(listLength(headPtr) - 1))
 			{
 				printf("The location is out of range\n");
 			}
@@ -260,6 +263,22 @@ void displayList(nodeT* top)
 		printf("\n* * * * * * * * * * * * * * * * * * * * * * * * * \n");
 	}
 	printf("\n | | | * * * * * * * * * * * * * * * * * * * * * * * * * \n");
+}
+
+void displayListNumbered(nodeT* top)
+{
+	struct node* temp;
+
+	temp = top;
+
+	int i = 0;
+
+	while (temp != NULL)
+	{
+		printf("%d. PPS Number : %d | Name : %s %s\n", i, temp->pps_number, temp->first_name, temp->last_name);
+		temp = temp->NEXT;
+		i++;
+	}
 }
 
 int listLength(nodeT* top)
