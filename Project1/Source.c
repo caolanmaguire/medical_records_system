@@ -2,7 +2,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<string.h>
 #include <conio.h>
+
+
 
 
 
@@ -55,15 +58,16 @@ typedef struct node
 	struct node* NEXT;
 }nodeT;
 
-struct node* creatNode();
+struct node* createNode();
 
 void displayList(nodeT* top);
 void displayListNumbered(nodeT* top);
 int listLength(nodeT* top);
 int search(nodeT* top, int searchVal);
+int CheckForPps(nodeT* top, int check_pps);
 //int search(nodeT* top);
 void addAtTheEndList(struct node* top);
-void addAtTheStartList(struct node** top);
+void addAtTheStartList(struct node** top);//(nodeT* top, int searchVal);
 void deleteAtEnd(struct node* top);
 void deleteAtStart(struct node** top);
 void addAtTheLocation(struct node* top, int location);
@@ -71,8 +75,12 @@ void outputToFile(struct node* top);
 void deleteAtLocation(struct node* top, int location);
 void ReadDatabase(struct node* top);
 void UserLogin(struct node* top);
+
+
 void main()
 {
+
+
 	nodeT* headPtr = NULL;
 	nodeT* newNode;
 	nodeT* temp = NULL;
@@ -80,12 +88,13 @@ void main()
 	int found;
 	int searchNum;
 	int choice;
+	char charchoice;
 	int result;
 	int loc;
 	int searchID;
-
-
 	int searchVal;
+	int location;
+	int check_pps;
 
 	
 	//LOGIN SYSTEM
@@ -101,7 +110,7 @@ void main()
 	printf("3) Display patient details\n");
 	printf("4) Update a patients details\n");
 	printf("5) Delete Patient\n");
-	printf("6) Generate statistics (A-D) based on the user selecting one of the criteria listed in I\n\t\tA. Percentage of patients with a BMI of less than 18.5\n\t\tB. Percentage of patients with a BMI of less than 25\n\t\tC. Percentage of patients with a BMI of less than 30\n\t\tD. Percentage of patients with a BMI of greater than 30\n\n\t\tI. How many cigarettes would you smoke per day.\n");
+	printf("6) Generate statistics\n");
 	printf("7) Print all patient details into a report file.\n");
 	printf("8) List all the patient of the following countries in order of their last appointment.\n");
 
@@ -111,13 +120,34 @@ void main()
 
 	while (choice != -1)
 	{
+		if (choice == 1301) {
+			//ReadDatabase(headPtr);
+			//CheckForPps(result = search(headPtr, &searchVal))
+			result = CheckForPps(headPtr, &searchVal);
+			if (result == 0) {
+				printf("afraid this exsits");
+			}
+			else {
+				printf("this doesn't exist!");
+			}
+		}
+
 		if (choice == 10) {
 			ReadDatabase(&headPtr);
 		}
 
 		if (choice == 1)
 		{
-			addAtTheStartList(&headPtr);
+			result = CheckForPps(headPtr, &searchVal);
+
+			//printf("%d", result);
+			if (result == 13) {
+				printf("this pps number exists - please choose another one \n");
+			}
+			else {
+				addAtTheStartList(&headPtr);
+				//printf("this doesn't exist!");
+			}
 		}
 
 		else if (choice == 2)
@@ -160,9 +190,15 @@ void main()
 
 		else if (choice == 4)
 		{
-			result = listLength(headPtr);
+			displayListNumbered(headPtr);
+			
+			printf("Please enter the location\n");
+			scanf_s("%d", &loc);
 
-			printf("The number of students stored is %d\n", result);
+			addAtTheLocation(headPtr, &location);
+			//deleteAtLocation(headPtr, &loc);
+
+			//printf("The number of students stored is %d\n", result);
 		}
 
 		else if (choice == 5)
@@ -201,14 +237,18 @@ void main()
 
 		else if (choice == 6)
 		{
-			if (headPtr == NULL)
+		printf("Please choose how you want to generate your statistics below : \n(A-D) based on the user selecting one of the criteria listed in I\n\t\tA. Percentage of patients with a BMI of less than 18.5\n\t\tB. Percentage of patients with a BMI of less than 25\n\t\tC. Percentage of patients with a BMI of less than 30\n\t\tD. Percentage of patients with a BMI of greater than 30\n\n\t\t\nPlease input A,B,C OR D of what you want to generate for:");
+		
+		scanf_s(" %c",&charchoice);
+		printf("%c\n", &charchoice);
+			/*f(headPtr == NULL)
 			{
 				printf("You can not delete from an empty list\n");
 			}
 			else
 			{
 				deleteAtStart(&headPtr);
-			}
+			}*/
 		}
 
 		else if (choice == 7)
@@ -237,7 +277,7 @@ void main()
 		printf("3) Display patient details\n");
 		printf("4) Update a patients details\n");
 		printf("5) Delete Patient\n");
-		printf("6) Generate statistics (A-D) based on the user selecting one of the criteria listed in I\n\t\tA. % of patients with a BMI of less than 18.5\n\t\tB. %of patients with a BMI of less than 25\n\t\tC. % of patients with a BMI of less than 30\n\t\tD. $ of patients with a BMI of greater than 30\n\n\t\tI. How many cigarettes would you smoke per day.\n");
+		printf("6) Generate statistics\n");
 		printf("7) Print all patient details into a report file.\n");
 		printf("8) List all the patient of the following countries in order of their last appointment.\n");
 		scanf_s("%d", &choice);
@@ -348,13 +388,14 @@ int search(nodeT* top, int searchVal)
 	/**/
 }
 
-void addAtTheStartList(struct node** top)
+void addAtTheStartList(struct node** top)//(nodeT* top, int check_pps)
 {
 	struct node* newNode;
 
 
 	//Option 1
 	newNode = (struct node*)malloc(sizeof(struct node));
+
 
 	printf("Please enter the patient's pps number : \n");
 	scanf_s("%d", &newNode->pps_number);
@@ -426,21 +467,63 @@ void deleteAtStart(struct node** top)
 	free(temp);
 }
 
-/*struct node* creatNode()
+struct node* createNode()
 {
 	struct node* newNode;
 
 
 	newNode = (struct node*)malloc(sizeof(struct node));
-	printf("Please enter the student name and age\n");
+
+	//Option 1
+	newNode = (struct node*)malloc(sizeof(struct node));
+
+	printf("Please enter the patient's pps number : \n");
+	scanf_s("%d", &newNode->pps_number);
+
+	printf("Please enter the patient's first name : \n");
+	scanf("%s", newNode->first_name);
+
+	printf("Please enter the patient's last name : \n");
+	scanf("%s", newNode->last_name);
+
+	printf("What year was the patient born? : \n");
+	scanf("%d", &newNode->year_born);
+
+	printf("What gender is the patient? : 0 for Male , 1 for Female\n");
+	//ADD MORE LOGIC CODE HERE
+	scanf("%d", &newNode->gender);
+
+	printf("What is the user's email : \n");
+	scanf("%s", newNode->email_address);
+
+	printf("What is the name of the next of kin of the patient ? : \n");
+	scanf("%s", newNode->next_kin_name);
+
+	printf("When was the patients last appointment FORMAT DD/MM/YY : \n");
+	scanf("%s", &newNode->last_appointment);
+
+	printf("What is the patient's weight? : \n");
+	scanf("%d", &newNode->weight);
+
+	printf("What is the patient's Height? : \n");
+	scanf("%d", &newNode->height);
+
+	printf("Does the patient have any allergies to medications? 1 for yes 0 for no : \n");
+	scanf("%d", &newNode->allergic_reactions);
+
+	printf("How many cigarretes does the patient smoke per day? 0 for none 1 for less than ten 2 for more than 10 : \n");
+	scanf("%d", &newNode->cigarretes_count);
+
+
+	/*printf("Please enter the student name and age\n");
 	scanf_s("%s %d", newNode->name, &newNode->age);
 	printf("Please enter the student id and grade\n");
 	scanf_s("%s %f", newNode->ID, &newNode->average);
 	printf("Please enter the student email and mobile\n");
-	scanf_s("%s %s", newNode->email, newNode->mobile);
+	scanf_s("%s %s", newNode->email, newNode->mobile);*/
 
 	return newNode;
-}*/
+}
 
 void UserLogin(struct node* top)
 {
@@ -541,14 +624,17 @@ void ReadDatabase(struct node** top)
 			//fscanf(fp, "%d %s %s %d %s %s %f %f %d %s %d %s\n", &newPatient->CompanyRegNum, newPatient->CompanyName, newPatient->CompanyCountry, &newPatient->YearCompanyFounded, newPatient->EmailAddress, newPatient->CompanyContactName, &newPatient->LastOrder, &newPatient->ClientAvgTurnover, &newPatient->NumOfEmployees, newPatient->CompanyRegNum, &newPatient->ClientAvgTurnover, newPatient->SalesArea);
 			//printf(feof(fp));
 			fscanf(fp, "%d %s %s %d %d %s %s %d %d %d %d %d\n", &newPatient->pps_number, &newPatient->first_name, &newPatient->last_name, &newPatient->year_born, &newPatient->gender, &newPatient->email_address, &newPatient->next_kin_name, &newPatient->last_appointment, &newPatient->weight, &newPatient->height, &newPatient->allergic_reactions, &newPatient->cigarretes_count);
-			printf("%d %s %s %d %d %s %s %d %d %d %d %d\n", &newPatient->pps_number, &newPatient->first_name, &newPatient->last_name, &newPatient->year_born, &newPatient->gender, &newPatient->email_address, &newPatient->next_kin_name, &newPatient->last_appointment, &newPatient->weight, &newPatient->height, &newPatient->allergic_reactions, &newPatient->cigarretes_count);
-
+			//fscanf(fp, "%d %s %s\n", newPatient->pps_number, newPatient->first_name, newPatient->last_name);
+			//printf("%d %s %s %d %d %s %s %d %d %d %d %d\n", &newPatient->pps_number, &newPatient->first_name, &newPatient->last_name, &newPatient->year_born, &newPatient->gender, &newPatient->email_address, &newPatient->next_kin_name, &newPatient->last_appointment, &newPatient->weight, &newPatient->height, &newPatient->allergic_reactions, &newPatient->cigarretes_count);
+			printf("%d %s %s\n", newPatient->pps_number, &newPatient->first_name, &newPatient->last_name);
 			newPatient->NEXT = temp;
 			temp = newPatient;
 
 			prev = temp;
 			temp = newPatient;
 			newPatient->NEXT = prev;
+
+
 
 		}
 		
@@ -558,7 +644,7 @@ void ReadDatabase(struct node** top)
 
 	//printf("File Loaded\n");
 
-	//*top = temp;
+	///*top = temp;
 	return temp;
 }
 
@@ -567,6 +653,7 @@ void outputToFile(struct node* top)
 	struct node* temp;
 	FILE* fp;
 	temp = top;
+
 
 	fp = fopen("client.txt", "w");
 
@@ -606,5 +693,85 @@ void deleteAtLocation(struct node* top, int location)
 
 	prev->NEXT = temp->NEXT;
 	free(temp);
+
+}
+
+void addAtTheLocation(struct node* top, int location)
+{
+	struct node* temp = top;
+	struct node* newNode;
+	int i;
+
+	//Option 1
+	/*newNode = (struct node*)malloc(sizeof(struct node));
+	printf("Please enter the student name and age\n");
+	scanf("%s %d", newNode->name, &newNode->age);
+	printf("Please enter the student id and grade\n");
+	scanf("%s %f", newNode->ID, &newNode->average);
+	printf("Please enter the student email and mobile\n");
+	scanf("%s %s", newNode->email, newNode->mobile);*/
+
+	//Option 2
+	newNode = createNode();
+
+	for (i = 0; i < location - 1; i++)
+	{
+		temp = temp->NEXT;
+	}
+
+	newNode->NEXT = temp->NEXT;
+	temp->NEXT = newNode;
+}
+
+/*
+void addAtTheLocation(struct node* top, int location)
+{
+	struct node* temp = top;
+	struct node* newNode;
+	int i;
+
+
+	//Option 2
+	//
+	newNode = createNode();
+
+	for (i = 0; i < location - 1; i++)
+	{
+		temp = temp->NEXT;
+	}
+
+
+	newNode->NEXT = temp->NEXT;
+	temp->NEXT = newNode;
+}*/
+
+int CheckForPps(nodeT* top, int check_pps)
+{
+	/*PPS NUMBER CHECKER*/
+
+	printf("Please input pps number you want to check \n");
+	scanf("%d", &check_pps);
+
+	struct node* temp = top;
+	int found = -1;
+	int count = 0;
+
+
+	while (temp != NULL)
+	{
+		//printf("%d / %d\n\n", temp->pps_number, &searchVal);
+
+
+		if (temp->pps_number == check_pps)
+		{
+			found = count;
+			printf("Sorry - but there already exists a patient with that pps number \n");
+			return 13;
+
+		}
+
+		temp = temp->NEXT;
+		count++;
+	}
 
 }
