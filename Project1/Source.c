@@ -1,44 +1,12 @@
-#pragma warning(disable : 4996).
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 #include<string.h>
 #include <conio.h>
 
-
-
-
-
-//#include <iostream>
-//#include <fstream>
-
-
 typedef struct node
 {
-
-	/*char name[30];
-	int age;
-	char ID[10];
-	float average;
-	char email[30];
-	char mobile[30];*/
-
-
-	//char CompanyRegNum[10];
-	/*int CompanyRegNum;
-	char CompanyName[30];
-	char CompanyCountry[30];
-	int YearCompanyFounded;
-	char EmailAddress[30];
-	char CompanyContactName[30];
-	char LastOrder[30];
-	int NumOfEmployees;
-	int AvgAnnualOrder;
-	int VatRegistered;
-	int ClientAvgTurnover;
-	int StaffCount;
-	int SalesArea;*/
-
+	//List Database Variables
 	int pps_number;
 	char first_name[30];
 	char last_name[30];
@@ -52,14 +20,12 @@ typedef struct node
 	int allergic_reactions;
 	int cigarretes_count;
 	
-
-
-
 	struct node* NEXT;
 }nodeT;
 
 struct node* createNode();
 
+//Declaring Functions for program
 void displayList(nodeT* top);
 void statisticsFunction(struct node* top, char charchoice);
 
@@ -69,7 +35,7 @@ int search(nodeT* top, int searchVal);
 int CheckForPps(nodeT* top, int check_pps);
 //int search(nodeT* top);
 void addAtTheEndList(struct node* top);
-void addAtTheStartList(struct node** top);//(nodeT* top, int searchVal);
+void addAtTheStartList(struct node** top);
 void deleteAtEnd(struct node* top);
 void deleteAtStart(struct node** top);
 void addAtTheLocation(struct node* top, int location);
@@ -78,14 +44,13 @@ void deleteAtLocation(struct node* top, int location);
 void ReadDatabase(struct node* top);
 void UserLogin(struct node* top);
 
-
 void main()
 {
-
-
 	nodeT* headPtr = NULL;
 	nodeT* newNode;
 	nodeT* temp = NULL;
+
+	//Local Variables for main()
 	int length = 0;
 	int found;
 	int searchNum;
@@ -102,11 +67,13 @@ void main()
 	//LOGIN SYSTEM
 	UserLogin(headPtr);
 
+	//Read Database file to load saved entries
 	ReadDatabase(headPtr);
 
+	//print new line
 	printf("\n");
 
-
+	//Print options to console
 	printf("1) Add patient(Note: PPS Number must be unique).\n");
 	printf("2) Display all patient details to screen\n");
 	printf("3) Display patient details\n");
@@ -116,39 +83,24 @@ void main()
 	printf("7) Print all patient details into a report file.\n");
 	printf("8) List all the patient of the following countries in order of their last appointment.\n");
 
-	//scanf_s("%d", &searchID);
-	//printf("This is the search ID : %d\n\n", searchID);
+	//take input of choice that user has made
 	scanf_s("%d", &choice);
 
+	//while loop for understanding which option the user has chosen and which function to run
 	while (choice != -1)
 	{
-		if (choice == 1301) {
-			//ReadDatabase(headPtr);
-			//CheckForPps(result = search(headPtr, &searchVal))
-			result = CheckForPps(headPtr, &searchVal);
-			if (result == 0) {
-				printf("afraid this exsits");
-			}
-			else {
-				printf("this doesn't exist!");
-			}
-		}
-
-		if (choice == 10) {
-			ReadDatabase(&headPtr);
-		}
 
 		if (choice == 1)
 		{
+			//run function that checks if the inputted pps number exists in linked database
 			result = CheckForPps(headPtr, &searchVal);
-
-			//printf("%d", result);
+			
+			//if this number exists doesn't continue program
 			if (result == 13) {
 				printf("this pps number exists - please choose another one \n");
 			}
 			else {
 				addAtTheStartList(&headPtr);
-				//printf("this doesn't exist!");
 			}
 		}
 
@@ -159,35 +111,7 @@ void main()
 
 		else if (choice == 3)
 		{
-			//printf("%d\n\n", choice);
-
-
-			//printf("%d\n\n", &searchID);
-			//printf("%i\n\n", &searchID);
-			//int newsearchID;
-			/*printf("Please enter the ID you wish to search for\n");
-			scanf_s("%i", &searchVal);
-			printf("This is what I read %d\n", &searchVal);*/
-			
-			//printf("%i\n\n", &newsearchID);
-
-			//scanf_s("%d", &newsearchID);
-
-			//printf("%d\n\n", &newsearchID);
-			//scanf("%d", caolan);
-
-			//printf("\n\nFINAL RESULT IS : %d\n\n", &searchID);
-
-			result = search(headPtr, &searchVal);//, &searchID);
-
-			//printf("\n\nFINAL RESULT IS : %d\n\n", caolan);
-
-			/*if (result == -1) {
-				printf("The value %s does not exist in the list\n", searchVal);
-			}
-			else {
-				printf("The vlaue %s exist at location %d\n", searchVal, result);
-			}*/
+			result = search(headPtr, &searchVal);
 		}
 
 		else if (choice == 4)
@@ -198,9 +122,6 @@ void main()
 			scanf_s("%d", &loc);
 
 			addAtTheLocation(headPtr, &location);
-			//deleteAtLocation(headPtr, &loc);
-
-			//printf("The number of students stored is %d\n", result);
 		}
 
 		else if (choice == 5)
@@ -210,11 +131,7 @@ void main()
 			scanf_s("%d", &loc);
 
 			printf("%d", headPtr);
-			//if (headPtr)
-			//{
-			//	printf("The list is empty\n");
-			//}
-			//else 
+
 			if (loc<0 || loc>(listLength(headPtr) - 1))
 			{
 				printf("The location is out of range\n");
@@ -239,39 +156,31 @@ void main()
 
 		else if (choice == 6)
 		{
-		printf("Please choose how you want to generate your statistics below : \n(A-D) based on the user selecting one of the criteria listed in I\n\t\tA. Percentage of patients with a BMI of less than 18.5\n\t\tB. Percentage of patients with a BMI of less than 25\n\t\tC. Percentage of patients with a BMI of less than 30\n\t\tD. Percentage of patients with a BMI of greater than 30\n\n\t\t\nPlease input A,B,C OR D of what you want to generate for:");
+			printf("Please choose how you want to generate your statistics below : \n(A-D) based on the user selecting one of the criteria listed in I\n\t\tA. Percentage of patients with a BMI of less than 18.5\n\t\tB. Percentage of patients with a BMI of less than 25\n\t\tC. Percentage of patients with a BMI of less than 30\n\t\tD. Percentage of patients with a BMI of greater than 30\n\n\t\t\nPlease input A,B,C OR D of what you want to generate for:");
 		
-		scanf_s(" %c", &charchoice, 1);
-		printf(" %c\n", charchoice);
+			scanf_s(" %c", &charchoice, 1);
+			printf(" %c\n", charchoice);
 
-		statisticsFunction(headPtr, charchoice);
+			statisticsFunction(headPtr, charchoice);
 
+			//YOU ARE HERE
 
-		//YOU ARE HERE
-
-		if (charchoice == 'a') {
-			printf('A.');// Percentage of patients with a BMI of less than 18.5');
-		}
-
-		if (charchoice == 'b') {
-			printf('B.');// Percentage of patients with a BMI of less than 25');
-		}
-
-		if (charchoice == 'c') {
-			printf('C.');// Percentage of patients with a BMI of less than 30');
-		}
-
-		if (charchoice == 'd') {
-			printf('D.');// Percentage of patients with a BMI of greater than 30');
-		}
-			/*f(headPtr == NULL)
-			{
-				printf("You can not delete from an empty list\n");
+			if (charchoice == 'a') {
+				printf('A. Percentage of patients with a BMI of less than 18.5');
 			}
-			else
-			{
-				deleteAtStart(&headPtr);
-			}*/
+
+			if (charchoice == 'b') {
+				printf('B. Percentage of patients with a BMI of less than 25');
+			}
+
+			if (charchoice == 'c') {
+				printf('C. Percentage of patients with a BMI of less than 30');
+			}
+
+			if (charchoice == 'd') {
+				printf('D. Percentage of patients with a BMI of greater than 30');
+			}
+
 		}
 
 		else if (choice == 7)
@@ -295,6 +204,7 @@ void main()
 			}
 		}
 
+		//Displaying each option again for user after they have selected the funciton already and we're starting this loop again
 		printf("1) Add patient(Note: PPS Number must be unique).\n");
 		printf("2) Display all patient details to screen\n");
 		printf("3) Display patient details\n");
@@ -308,7 +218,7 @@ void main()
 
 }
 
-
+//Function for displaying every entry in linked list database 
 void displayList(nodeT* top)
 {
 	struct node* temp;
@@ -320,14 +230,13 @@ void displayList(nodeT* top)
 	{
 		printf("\n* * * * * * * * * * * * * * * * * * * * * * * * * \n");
 		printf("PPS Number : %d \nFirst Name : %s\nSecond Name : %s\nYear Born : %d\nGender : %d\nEmail Address : %s\nNext of Kin : %s\nLast appointment : %d\nWeight : %d\nHeight : %d\nDoes the patient have allergies : %d\nHow many cigarettes smoked per day : % d\n\n", temp->pps_number, temp->first_name, temp->last_name, temp->year_born, temp->gender, temp->email_address, temp->next_kin_name, temp->last_appointment, temp->weight, temp->height, temp->allergic_reactions, temp->cigarretes_count);
-		//printf("Company Reg Num : %d \n Company Name %s \n Company Based in : %s \n Year company was founded : %d \n Contact Email Address : %s \n Company Contact Name : %s \n Last order made : %s \n Number of Employees in the Company : %d \n Average Annual Order : %d \n Is the client Vat registered : %d \n Average Client Turnover : %d \n How many staff does this company have : %d \n Which area of sales is this business in : %d \n", temp->CompanyRegNum, temp->CompanyName, temp->CompanyCountry, temp->YearCompanyFounded, temp->EmailAddress, temp->CompanyContactName, temp->LastOrder, temp->NumOfEmployees, temp->AvgAnnualOrder, temp->VatRegistered, temp->ClientAvgTurnover, temp->StaffCount, temp->SalesArea);
-		//printf("", temp->LastOrder, temp->NumOfEmployees, temp->AvgAnnualOrder);
 		temp = temp->NEXT;
 		printf("\n* * * * * * * * * * * * * * * * * * * * * * * * * \n");
 	}
 	printf("\n | | | * * * * * * * * * * * * * * * * * * * * * * * * * \n");
 }
 
+//Function for statistics - finding BMI and displaying in console
 void statisticsFunction(nodeT* top, char charchoice)
 {
 	struct node* temp;
@@ -340,15 +249,13 @@ void statisticsFunction(nodeT* top, char charchoice)
 		printf("\n* * * * * * * * * * * * * * * * * * * * * * * * * \n");
 		printf("Statistics For PPS number : %d\n", temp->pps_number);
 
-		//printf("PPS Number : %d \nFirst Name : %s\nSecond Name : %s\nYear Born : %d\nGender : %d\nEmail Address : %s\nNext of Kin : %s\nLast appointment : %d\nWeight : %d\nHeight : %d\nDoes the patient have allergies : %d\nHow many cigarettes smoked per day : % d\n\n", temp->pps_number, temp->first_name, temp->last_name, temp->year_born, temp->gender, temp->email_address, temp->next_kin_name, temp->last_appointment, temp->weight, temp->height, temp->allergic_reactions, temp->cigarretes_count);
-		//printf("Company Reg Num : %d \n Company Name %s \n Company Based in : %s \n Year company was founded : %d \n Contact Email Address : %s \n Company Contact Name : %s \n Last order made : %s \n Number of Employees in the Company : %d \n Average Annual Order : %d \n Is the client Vat registered : %d \n Average Client Turnover : %d \n How many staff does this company have : %d \n Which area of sales is this business in : %d \n", temp->CompanyRegNum, temp->CompanyName, temp->CompanyCountry, temp->YearCompanyFounded, temp->EmailAddress, temp->CompanyContactName, temp->LastOrder, temp->NumOfEmployees, temp->AvgAnnualOrder, temp->VatRegistered, temp->ClientAvgTurnover, temp->StaffCount, temp->SalesArea);
-		//printf("", temp->LastOrder, temp->NumOfEmployees, temp->AvgAnnualOrder);
 		temp = temp->NEXT;
 		printf("\n* * * * * * * * * * * * * * * * * * * * * * * * * \n");
 	}
 	printf("\n | | | * * * * * * * * * * * * * * * * * * * * * * * * * \n");
 }
 
+//Function for listing each entry in the database with a number beside it / useful for showing to user and allowing them to input which entry they want for that function
 void displayListNumbered(nodeT* top)
 {
 	struct node* temp;
@@ -365,6 +272,7 @@ void displayListNumbered(nodeT* top)
 	}
 }
 
+//Function for finding length of linked list  / ie how many entries are in this linked list database
 int listLength(nodeT* top)
 {
 	struct node* temp = top;
@@ -379,9 +287,9 @@ int listLength(nodeT* top)
 	return count;
 }
 
+//Function for searching and displaying desired element from linked list database
 int search(nodeT* top, int searchVal)
 {
-
 	printf("please input the pps number of the client you are searching for : \n");
 	scanf_s("%d", &searchVal);
 	printf("%d\n\n",searchVal);
@@ -411,15 +319,6 @@ int search(nodeT* top, int searchVal)
 				printf("PATIENT GENDER IS : FEMALE\n");
 			}
 
-			//printf("PPS NUMBER IS : %d\n", temp->pps_number);
-			//printf("PPS NUMBER IS : %d\n", temp->pps_number);
-			//printf("PPS NUMBER IS : %d\n", temp->pps_number);
-			//printf("PPS NUMBER IS : %d\n", temp->pps_number);
-			//printf("PPS NUMBER IS : %d\n", temp->pps_number);
-			//printf("PPS NUMBER IS : %d\n", temp->pps_number);
-			//printf("PPS NUMBER IS : %d\n", temp->pps_number);
-
-
 		}
 
 		temp = temp->NEXT;
@@ -429,17 +328,14 @@ int search(nodeT* top, int searchVal)
 	printf("\n\n COUNT IS %d \n \n", count);
 
 	return found;
-	/**/
 }
 
+//Function for adding list element at start of linked list database
 void addAtTheStartList(struct node** top)//(nodeT* top, int check_pps)
 {
 	struct node* newNode;
 
-
-	//Option 1
 	newNode = (struct node*)malloc(sizeof(struct node));
-
 
 	printf("Please enter the patient's pps number : \n");
 	scanf_s("%d", &newNode->pps_number);
@@ -454,7 +350,6 @@ void addAtTheStartList(struct node** top)//(nodeT* top, int check_pps)
 	scanf("%d", &newNode->year_born);
 
 	printf("What gender is the patient? : 0 for Male , 1 for Female\n");
-	//ADD MORE LOGIC CODE HERE
 	scanf("%d", &newNode->gender);
 
 	printf("What is the user's email : \n");
@@ -480,14 +375,12 @@ void addAtTheStartList(struct node** top)//(nodeT* top, int check_pps)
 
 	printf("User Creation Function Finished \n\n\n\n");
 
-	//Option 2
-	//newNode = creatNode();
-
 	newNode->NEXT = *top;
 	*top = newNode;
 
 }
 
+//Function for deleting list entry at end of linked list
 void deleteAtEnd(struct node* top)
 {
 	struct node* temp = top;
@@ -502,6 +395,8 @@ void deleteAtEnd(struct node* top)
 	prev->NEXT = NULL;
 	free(temp);
 }
+
+//Function for deleting linked list entry at start of linked list
 void deleteAtStart(struct node** top)
 {
 	struct node* temp = *top;
@@ -511,10 +406,10 @@ void deleteAtStart(struct node** top)
 	free(temp);
 }
 
+//Function for creating a node / useful for creating elements
 struct node* createNode()
 {
 	struct node* newNode;
-
 
 	newNode = (struct node*)malloc(sizeof(struct node));
 
@@ -558,29 +453,19 @@ struct node* createNode()
 	printf("How many cigarretes does the patient smoke per day? 0 for none 1 for less than ten 2 for more than 10 : \n");
 	scanf("%d", &newNode->cigarretes_count);
 
-
-	/*printf("Please enter the student name and age\n");
-	scanf_s("%s %d", newNode->name, &newNode->age);
-	printf("Please enter the student id and grade\n");
-	scanf_s("%s %f", newNode->ID, &newNode->average);
-	printf("Please enter the student email and mobile\n");
-	scanf_s("%s %s", newNode->email, newNode->mobile);*/
-
 	return newNode;
 }
 
+//Function for reading login file and offering dialog for user to input username and password and checking that against linked list databse
 void UserLogin(struct node* top)
 {
+	//login creds	
 
-	//login creds
-	
 	//USER ONE
 	char username[30];
 	char UserPassword[15];
-
 	char UsernameInput[30];
 	char PasswordInput[15];
-
 
 	struct node* temp = NULL;
 	struct node* prev = NULL;
@@ -593,11 +478,7 @@ void UserLogin(struct node* top)
 	if (fp != NULL) {
 
 		while (!feof(fp)) {
-			printf(feof);
-
 			fscanf(fp, "%s %s\n", username, UserPassword);
-			//printf("\n\nNEW STRING = %s\n\n", ->CompanyRegNum);
-
 		}
 
 		printf("\n\nINTERESTING: USER %s \n PASS %s . \n", username, UserPassword);
@@ -608,10 +489,6 @@ void UserLogin(struct node* top)
 		while (LoginRun == 0) {
 			printf("Please enter your username:\n");
 			scanf("%s", &UsernameInput);
-
-			//printf("\nPlease enter your password:\n");
-			//scanf("%s", &PasswordInput);
-
 
 			printf("password:\n");
 			int p = 0;
@@ -636,12 +513,12 @@ void UserLogin(struct node* top)
 			}
 		}
 
-	}
-	else {
+	} else {
 		printf("No Accounts available to login to.\n");
 	}
 }
 
+//Function for reading entries in from text file
 void ReadDatabase(struct node** top)
 {
 	struct node* temp = NULL;
@@ -650,26 +527,17 @@ void ReadDatabase(struct node** top)
 
 	FILE* fp;
 
-	//temp = top;
-
-
 	fp = fopen("client.txt", "r");
 	if (fp == NULL) {
 		printf("File does not exist or could not be opened\n");
-	}
-	else {
+	} else {
 		//Loops through the file reading in all informtion to an entry in the list
 		//Echoes the outputToFile function
 		
 		while (!feof(fp))
 		{
-
 			newPatient = (struct node*)malloc(sizeof(struct node));
-			//fscanf(fp, "%d %s %s %d %s %s %f %f %d %s %d %s\n", &newPatient->CompanyRegNum, newPatient->CompanyName, newPatient->CompanyCountry, &newPatient->YearCompanyFounded, newPatient->EmailAddress, newPatient->CompanyContactName, &newPatient->LastOrder, &newPatient->ClientAvgTurnover, &newPatient->NumOfEmployees, newPatient->CompanyRegNum, &newPatient->ClientAvgTurnover, newPatient->SalesArea);
-			//printf(feof(fp));
 			fscanf(fp, "%d %s %s %d %d %s %s %d %d %d %d %d\n", &newPatient->pps_number, &newPatient->first_name, &newPatient->last_name, &newPatient->year_born, &newPatient->gender, &newPatient->email_address, &newPatient->next_kin_name, &newPatient->last_appointment, &newPatient->weight, &newPatient->height, &newPatient->allergic_reactions, &newPatient->cigarretes_count);
-			//fscanf(fp, "%d %s %s\n", newPatient->pps_number, newPatient->first_name, newPatient->last_name);
-			//printf("%d %s %s %d %d %s %s %d %d %d %d %d\n", &newPatient->pps_number, &newPatient->first_name, &newPatient->last_name, &newPatient->year_born, &newPatient->gender, &newPatient->email_address, &newPatient->next_kin_name, &newPatient->last_appointment, &newPatient->weight, &newPatient->height, &newPatient->allergic_reactions, &newPatient->cigarretes_count);
 			printf("%d %s %s\n", newPatient->pps_number, &newPatient->first_name, &newPatient->last_name);
 			newPatient->NEXT = temp;
 			temp = newPatient;
@@ -677,38 +545,27 @@ void ReadDatabase(struct node** top)
 			prev = temp;
 			temp = newPatient;
 			newPatient->NEXT = prev;
-
-
-
 		}
-		
 
 		fclose(fp);
 	}
-
-	//printf("File Loaded\n");
-
-	///*top = temp;
 	return temp;
 }
 
+//Function for outputting linked list into text file
 void outputToFile(struct node* top)
 {
 	struct node* temp;
 	FILE* fp;
 	temp = top;
 
-
 	fp = fopen("client.txt", "w");
-
 
 	while (temp != NULL)
 	{
 		if (fp != NULL)
 		{
-			//fprintf(fp, "%d %s %s %d %s %s %s %d %d %d %d %d %d\n", temp->CompanyRegNum, temp->CompanyName, temp->CompanyCountry, temp->YearCompanyFounded, temp->EmailAddress, temp->CompanyContactName, temp->LastOrder, temp->NumOfEmployees, temp->AvgAnnualOrder, temp->VatRegistered, temp->AvgAnnualOrder, temp->StaffCount, temp->SalesArea);
 			fprintf(fp, "%d %s %s %d %d %s %s %d %d %d %d %d\n", temp->pps_number, temp->first_name, temp->last_name, temp->year_born, temp->gender, temp->email_address, temp->next_kin_name, temp->last_appointment, temp->weight, temp->height, temp->allergic_reactions, temp->cigarretes_count);
-
 		}
 
 		temp = temp->NEXT;
@@ -722,7 +579,7 @@ void outputToFile(struct node* top)
 	}
 }
 
-
+//Function for deleting entry in linked list at particular location
 void deleteAtLocation(struct node* top, int location)
 {
 	struct node* temp = top;
@@ -737,25 +594,15 @@ void deleteAtLocation(struct node* top, int location)
 
 	prev->NEXT = temp->NEXT;
 	free(temp);
-
 }
 
+//Function for adding entry at location in linked list
 void addAtTheLocation(struct node* top, int location)
 {
 	struct node* temp = top;
 	struct node* newNode;
 	int i;
 
-	//Option 1
-	/*newNode = (struct node*)malloc(sizeof(struct node));
-	printf("Please enter the student name and age\n");
-	scanf("%s %d", newNode->name, &newNode->age);
-	printf("Please enter the student id and grade\n");
-	scanf("%s %f", newNode->ID, &newNode->average);
-	printf("Please enter the student email and mobile\n");
-	scanf("%s %s", newNode->email, newNode->mobile);*/
-
-	//Option 2
 	newNode = createNode();
 
 	for (i = 0; i < location - 1; i++)
@@ -789,10 +636,9 @@ void addAtTheLocation(struct node* top, int location)
 	temp->NEXT = newNode;
 }*/
 
+//This function is to check if the passed pps (check_pps) exists in the linked list
 int CheckForPps(nodeT* top, int check_pps)
 {
-	/*PPS NUMBER CHECKER*/
-
 	printf("Please input pps number you want to check \n");
 	scanf("%d", &check_pps);
 
@@ -803,15 +649,11 @@ int CheckForPps(nodeT* top, int check_pps)
 
 	while (temp != NULL)
 	{
-		//printf("%d / %d\n\n", temp->pps_number, &searchVal);
-
-
 		if (temp->pps_number == check_pps)
 		{
 			found = count;
 			printf("Sorry - but there already exists a patient with that pps number \n");
 			return 13;
-
 		}
 
 		temp = temp->NEXT;
