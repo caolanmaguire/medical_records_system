@@ -61,6 +61,8 @@ typedef struct node
 struct node* createNode();
 
 void displayList(nodeT* top);
+void statisticsFunction(struct node* top, char charchoice);
+
 void displayListNumbered(nodeT* top);
 int listLength(nodeT* top);
 int search(nodeT* top, int searchVal);
@@ -239,8 +241,29 @@ void main()
 		{
 		printf("Please choose how you want to generate your statistics below : \n(A-D) based on the user selecting one of the criteria listed in I\n\t\tA. Percentage of patients with a BMI of less than 18.5\n\t\tB. Percentage of patients with a BMI of less than 25\n\t\tC. Percentage of patients with a BMI of less than 30\n\t\tD. Percentage of patients with a BMI of greater than 30\n\n\t\t\nPlease input A,B,C OR D of what you want to generate for:");
 		
-		scanf_s(" %c",&charchoice);
-		printf("%c\n", &charchoice);
+		scanf_s(" %c", &charchoice, 1);
+		printf(" %c\n", charchoice);
+
+		statisticsFunction(headPtr, charchoice);
+
+
+		//YOU ARE HERE
+
+		if (charchoice == 'a') {
+			printf('A.');// Percentage of patients with a BMI of less than 18.5');
+		}
+
+		if (charchoice == 'b') {
+			printf('B.');// Percentage of patients with a BMI of less than 25');
+		}
+
+		if (charchoice == 'c') {
+			printf('C.');// Percentage of patients with a BMI of less than 30');
+		}
+
+		if (charchoice == 'd') {
+			printf('D.');// Percentage of patients with a BMI of greater than 30');
+		}
 			/*f(headPtr == NULL)
 			{
 				printf("You can not delete from an empty list\n");
@@ -297,6 +320,27 @@ void displayList(nodeT* top)
 	{
 		printf("\n* * * * * * * * * * * * * * * * * * * * * * * * * \n");
 		printf("PPS Number : %d \nFirst Name : %s\nSecond Name : %s\nYear Born : %d\nGender : %d\nEmail Address : %s\nNext of Kin : %s\nLast appointment : %d\nWeight : %d\nHeight : %d\nDoes the patient have allergies : %d\nHow many cigarettes smoked per day : % d\n\n", temp->pps_number, temp->first_name, temp->last_name, temp->year_born, temp->gender, temp->email_address, temp->next_kin_name, temp->last_appointment, temp->weight, temp->height, temp->allergic_reactions, temp->cigarretes_count);
+		//printf("Company Reg Num : %d \n Company Name %s \n Company Based in : %s \n Year company was founded : %d \n Contact Email Address : %s \n Company Contact Name : %s \n Last order made : %s \n Number of Employees in the Company : %d \n Average Annual Order : %d \n Is the client Vat registered : %d \n Average Client Turnover : %d \n How many staff does this company have : %d \n Which area of sales is this business in : %d \n", temp->CompanyRegNum, temp->CompanyName, temp->CompanyCountry, temp->YearCompanyFounded, temp->EmailAddress, temp->CompanyContactName, temp->LastOrder, temp->NumOfEmployees, temp->AvgAnnualOrder, temp->VatRegistered, temp->ClientAvgTurnover, temp->StaffCount, temp->SalesArea);
+		//printf("", temp->LastOrder, temp->NumOfEmployees, temp->AvgAnnualOrder);
+		temp = temp->NEXT;
+		printf("\n* * * * * * * * * * * * * * * * * * * * * * * * * \n");
+	}
+	printf("\n | | | * * * * * * * * * * * * * * * * * * * * * * * * * \n");
+}
+
+void statisticsFunction(nodeT* top, char charchoice)
+{
+	struct node* temp;
+
+	temp = top;
+
+	printf(" | | |* * * * * * * * * * * * * * * * * * * * * * * * * \n");
+	while (temp != NULL)
+	{
+		printf("\n* * * * * * * * * * * * * * * * * * * * * * * * * \n");
+		printf("Statistics For PPS number : %d\n", temp->pps_number);
+
+		//printf("PPS Number : %d \nFirst Name : %s\nSecond Name : %s\nYear Born : %d\nGender : %d\nEmail Address : %s\nNext of Kin : %s\nLast appointment : %d\nWeight : %d\nHeight : %d\nDoes the patient have allergies : %d\nHow many cigarettes smoked per day : % d\n\n", temp->pps_number, temp->first_name, temp->last_name, temp->year_born, temp->gender, temp->email_address, temp->next_kin_name, temp->last_appointment, temp->weight, temp->height, temp->allergic_reactions, temp->cigarretes_count);
 		//printf("Company Reg Num : %d \n Company Name %s \n Company Based in : %s \n Year company was founded : %d \n Contact Email Address : %s \n Company Contact Name : %s \n Last order made : %s \n Number of Employees in the Company : %d \n Average Annual Order : %d \n Is the client Vat registered : %d \n Average Client Turnover : %d \n How many staff does this company have : %d \n Which area of sales is this business in : %d \n", temp->CompanyRegNum, temp->CompanyName, temp->CompanyCountry, temp->YearCompanyFounded, temp->EmailAddress, temp->CompanyContactName, temp->LastOrder, temp->NumOfEmployees, temp->AvgAnnualOrder, temp->VatRegistered, temp->ClientAvgTurnover, temp->StaffCount, temp->SalesArea);
 		//printf("", temp->LastOrder, temp->NumOfEmployees, temp->AvgAnnualOrder);
 		temp = temp->NEXT;

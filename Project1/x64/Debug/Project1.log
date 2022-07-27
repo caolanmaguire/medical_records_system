@@ -1,37 +1,39 @@
 ﻿  Source.c
 C:\Users\pauli\source\repos\Project1\Project1\Source.c(1,32): warning C4081: expected 'newline'; found '.'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(126,44): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(126,34): warning C4024: 'CheckForPps': different types for formal and actual parameter 2
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(136,25): warning C4047: 'function': 'node *' differs in levels of indirection from 'nodeT **'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(136,17): warning C4024: 'ReadDatabase': different types for formal and actual parameter 1
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(141,44): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(141,34): warning C4024: 'CheckForPps': different types for formal and actual parameter 2
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(179,39): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(179,29): warning C4024: 'search': different types for formal and actual parameter 2
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(198,39): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(198,30): warning C4024: 'addAtTheLocation': different types for formal and actual parameter 2
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(210,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'nodeT *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(210,11): warning C4313: 'printf': '%d' in format string conflicts with argument 1 of type 'nodeT *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(242,11): warning C4473: 'scanf_s' : not enough arguments passed for format string
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(242,11): message : placeholders and their parameters expect 2 variadic arguments, but 1 were provided
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(242,11): message : the missing variadic argument 2 is required by format string '%c'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(242,11): message : this argument is used as a buffer size
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(243,10): warning C4477: 'printf' : format string '%c' requires an argument of type 'int', but variadic argument 1 has type 'char *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(243,10): warning C4313: 'printf': '%c' in format string conflicts with argument 1 of type 'char *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(88,6): warning C4101: 'found': unreferenced local variable
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(97,6): warning C4101: 'check_pps': unreferenced local variable
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(85,9): warning C4101: 'newNode': unreferenced local variable
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(94,6): warning C4101: 'searchID': unreferenced local variable
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(89,6): warning C4101: 'searchNum': unreferenced local variable
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(352,10): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(352,10): warning C4313: 'printf': '%d' in format string conflicts with argument 2 of type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(423,8): warning C4477: 'scanf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(503,8): warning C4477: 'scanf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'int *'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(552,15): warning C4047: 'function': 'const char *const ' differs in levels of indirection from 'int (__cdecl *)(FILE *)'
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(552,11): warning C4024: 'printf': different types for formal and actual parameter 1
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(543,9): warning C4101: 'newPatientEntry': unreferenced local variable
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(601,33): warning C4028: formal parameter 1 different from declaration
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(648,13): warning C4098: 'ReadDatabase': 'void' function returning a value
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(677,3): warning C4550: expression evaluates to a function which is missing an argument list
-C:\Users\pauli\source\repos\Project1\Project1\Source.c(777): warning C4715: 'CheckForPps': not all control paths return a value
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(128,44): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(128,34): warning C4024: 'CheckForPps': different types for formal and actual parameter 2
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(138,25): warning C4047: 'function': 'node *' differs in levels of indirection from 'nodeT **'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(138,17): warning C4024: 'ReadDatabase': different types for formal and actual parameter 1
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(143,44): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(143,34): warning C4024: 'CheckForPps': different types for formal and actual parameter 2
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(181,39): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(181,29): warning C4024: 'search': different types for formal and actual parameter 2
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(200,39): warning C4047: 'function': 'int' differs in levels of indirection from 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(200,30): warning C4024: 'addAtTheLocation': different types for formal and actual parameter 2
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(212,11): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'nodeT *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(212,11): warning C4313: 'printf': '%d' in format string conflicts with argument 1 of type 'nodeT *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(253,15): warning C4047: 'function': 'const char *const ' differs in levels of indirection from 'int'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(253,11): warning C4024: 'printf': different types for formal and actual parameter 1
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(257,15): warning C4047: 'function': 'const char *const ' differs in levels of indirection from 'int'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(257,11): warning C4024: 'printf': different types for formal and actual parameter 1
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(261,15): warning C4047: 'function': 'const char *const ' differs in levels of indirection from 'int'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(261,11): warning C4024: 'printf': different types for formal and actual parameter 1
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(265,15): warning C4047: 'function': 'const char *const ' differs in levels of indirection from 'int'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(265,11): warning C4024: 'printf': different types for formal and actual parameter 1
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(90,6): warning C4101: 'found': unreferenced local variable
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(99,6): warning C4101: 'check_pps': unreferenced local variable
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(87,9): warning C4101: 'newNode': unreferenced local variable
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(96,6): warning C4101: 'searchID': unreferenced local variable
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(91,6): warning C4101: 'searchNum': unreferenced local variable
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(395,10): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 2 has type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(395,10): warning C4313: 'printf': '%d' in format string conflicts with argument 2 of type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(466,8): warning C4477: 'scanf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(546,8): warning C4477: 'scanf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'int *'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(595,15): warning C4047: 'function': 'const char *const ' differs in levels of indirection from 'int (__cdecl *)(FILE *)'
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(595,11): warning C4024: 'printf': different types for formal and actual parameter 1
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(586,9): warning C4101: 'newPatientEntry': unreferenced local variable
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(644,33): warning C4028: formal parameter 1 different from declaration
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(691,13): warning C4098: 'ReadDatabase': 'void' function returning a value
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(720,3): warning C4550: expression evaluates to a function which is missing an argument list
+C:\Users\pauli\source\repos\Project1\Project1\Source.c(820): warning C4715: 'CheckForPps': not all control paths return a value
   Project1.vcxproj -> C:\Users\pauli\source\repos\Project1\x64\Debug\Project1.exe
