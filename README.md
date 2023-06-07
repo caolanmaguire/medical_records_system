@@ -1,9 +1,5 @@
-# advanced_procedural
-This is my end of year project for second year for advanced procedural programming in ATU.
-I've included the project requirements below for reference.
+# ******* PROJECT DUE SHEET *********
 
-
-******* PROJECT DUE SHEET *********
 Autumn Advanced Procedural Programming Assignment
 Due Date: Thursday 19th August 2022
 ABC Dental Practice Ltd currently manually store patient records but have requested you to develop
